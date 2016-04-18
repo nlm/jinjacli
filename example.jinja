@@ -1,0 +1,22 @@
+hello
+{%- for i in range(2) %}
+{{ "ok" }}
+{%- endfor %}
+{{ "cool"|capitalize }}
+{{ {'cool': [1, 2, 3]}|jsonify }}
+{%- set numbers = range(5) %}
+{%- for i in numbers|reject("odd") %}
+{{ i }}
+{%- endfor %}
+{%- if [1, 2, 3] is sequence %}
+Win
+{%- else %}
+FAIL
+{%- endif %}
+{%- set mesg = 'FAIL' %}
+{%- with mesg = 'Win' %}
+{{ mesg }}
+{%- endwith %}
+{%- if mesg == 'FAIL' %}
+Win
+{%- endif %}
